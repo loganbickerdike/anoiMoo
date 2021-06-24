@@ -1,0 +1,6 @@
+.ButtonBar-Body{
+    --border: .5px solid white;
+    padding: 50px 150px 25px 25px;
+    display: flex;
+    justify-content: flex-end;
+}

@@ -1,0 +1,18 @@
+.RadioButtonQuestion-Body{
+    font-size: calc(10px + 1vmin);
+    margin-top: 50px;
+  }
+
+  .RadioButtonQuestion-Question{
+    text-align: center;      
+  }
+
+.RadioButtonQuestions-radioButtons{
+  text-align: center;  
+  --border: .5px solid white;
+  }  
+
+ .RadioButtonQuestions-Label{
+    margin-left: 25px;  
+    }
+
