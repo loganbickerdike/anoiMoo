@@ -7,7 +7,7 @@ function TextAreaQuestion(props) {
     return (
         <div className = 'TextAreaQuestion-Body'> 
             <p style={{fontSize: 'calc(10px + 1vmin)'}}> {props.question}</p>
-            <InputTextarea rows={5} cols={30} style={{marginTop: '15px'}} />    
+            <InputTextarea rows={5} cols={30} pinputtextarea={{width: '750px' }} />    
         </div>
     );
 

@@ -2,19 +2,16 @@ import './App.css';
 import 'primereact/resources/themes/saga-blue/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
-import {InputText} from 'primereact/inputtext';
 import {useRef, useState} from 'react';
-import {Button} from 'primereact/button';
 import {Toast} from 'primereact/toast';
-import { InputTextarea } from 'primereact/inputtextarea';
 import RadioButtonQuestion from  './Components/RadioButtonQuestion';
 import TextAreaQuestion from './Components/TextAreaQuestion';
-import { ScrollPanel } from 'primereact/scrollpanel';
 import * as Api from './Api/Api'; 
 import ButtonBar from './Components/ButtonBar';
+import RadioButtonQASet from './Components/RadionButtonQASet';
 
 function App() {
-  const [questions] = useState(Api.GetQuestions());
+  const [qaSet] = useState(Api.GetQASet());
 
   const toastRef = useRef();
 
@@ -22,11 +19,15 @@ function App() {
     toastRef.current.show({severity: 'success', summary: 'Success', detail: 'Survey completed, thank you'});
   } 
 
-  const renderQuestion = (s) =>{
-    if(s.questionType ==='textArea')
-      return <TextAreaQuestion question = {s.questionText}/>;
-    else if(s.questionType ==='radioButton')  
-      return <RadioButtonQuestion question = {s.questionText}/>;
+  const renderQASet = (s) =>{
+    var component = null;
+    switch(s.type){
+      case 'radioButton':
+        component  = <RadioButtonQASet question = {s.question} answers = {s.answers}/>; break;
+      case 'textArea':
+        component  = <TextAreaQuestion question = {s.question}/>;  break; 
+    }
+    return component;  
 
   }
 
@@ -38,9 +39,11 @@ function App() {
         <p>Our aim is to find out how you are without finding out who you are. Lets get to the questions.</p>
         <hr style={{width: '75%', marginBottom: '85px'}}></hr> 
 
-        <div className= 'App-QuestionBody'>
-          {questions.map(s => { return  renderQuestion(s) })} 
+        <div className= 'App-QuestionBody'> 
 
+        <RadioButtonQASet question = {"Test demo question"} answers = {['happy','sad','drunk']}/>
+
+          {qaSet.map(s => {return renderQASet(s)})}
           <ButtonBar onButtonClick= {onButtonClick}/>     
         </div>
     </div>
