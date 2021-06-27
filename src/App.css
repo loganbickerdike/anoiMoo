@@ -1,14 +1,10 @@
 
-.App {
-  background-color: #282c34;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 1vmin);
-  color: white;
-  margin-top: 15px;
-
+.App {  
+  height: 1350px;
+  background-color: LemonChiffon ;
+  --background: url("./Images/farm.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .App-QuestionBody{
@@ -19,7 +15,7 @@
 
 
 .App-link {
-  color: #61dafb;
+  color: #03090a;
 }
 
 
